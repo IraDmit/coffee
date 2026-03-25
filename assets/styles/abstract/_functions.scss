@@ -1,0 +1,3 @@
+@function font-size($type, $device: desktop) {
+    @return map-get(map-get($font-sizes, $type), $device);
+}

@@ -1,0 +1,27 @@
+*,
+body {
+    font-family: $body-font-family !important;
+}
+
+h1 {
+    font-family: $body-font-family;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.base-text {
+    font-family: $body-font-family !important;
+    font-size: $text-base-desktop !important;
+    @media (max-width: 768px) {
+        font-size: $text-base-mobile !important;
+    }
+}
+
+.base-title {
+    font-family: $body-font-family !important;
+    font-size: $text-title-desktop !important;
+    @media (max-width: 768px) {
+        font-size: $text-title-mobile !important;
+    }
+}

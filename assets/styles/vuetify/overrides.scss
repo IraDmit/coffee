@@ -1,0 +1,18 @@
+.v-application {
+    font-family: $body-font-family !important;
+}
+
+.v-btn {
+    font-family: $body-font-family;
+    font-weight: 700;
+}
+
+.v-card-title,
+.v-card__title {
+    font-size: $text-title-desktop !important;
+    font-weight: 700;
+}
+
+.v-card-text {
+    font-size: $text-base-desktop;
+}

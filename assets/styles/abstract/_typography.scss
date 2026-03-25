@@ -1,0 +1,15 @@
+//map, так как он легко масштабируется, что полезно для крупных проектов
+$font-sizes: (
+    title: (
+        desktop: 28px,
+        mobile: 24px,
+    ),
+    base: (
+        desktop: 16px,
+        mobile: 14px,
+    ),
+    caption: (
+        desktop: 12px,
+        mobile: 10px,
+    ),
+);
