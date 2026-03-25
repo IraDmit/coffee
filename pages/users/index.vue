@@ -7,7 +7,7 @@
                 </p>
             </v-col>
         </v-row>
-
+        {{ city }}
         <v-row class="mb-4">
             <v-col cols="12" md="6">
                 <v-text-field
@@ -35,6 +35,7 @@
                     item-color="accent"
                     @change="onFilterCity"
                     hide-details
+                    multiple
                 />
             </v-col>
         </v-row>
@@ -200,7 +201,7 @@ export default {
 
             if (this.city) {
                 list = list.filter((user) => {
-                    return user.city?.title === this.city;
+                    return this.city.includes(user.city?.title);
                 });
             }
 
