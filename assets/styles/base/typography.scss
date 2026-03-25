@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-    font-family: $body-font-family;
+    font-family: $body-font-family !important;
     font-size: 24px;
     line-height: 28px;
     font-weight: 700;
@@ -13,6 +13,8 @@ h1 {
 .base-text {
     font-family: $body-font-family !important;
     font-size: $text-base-desktop !important;
+    line-height: 16px;
+    font-weight: 400;
     @media (max-width: 768px) {
         font-size: $text-base-mobile !important;
     }

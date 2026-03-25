@@ -18,7 +18,7 @@
                     dense
                     outlined
                     color="accent"
-                    @input="onSearch"
+                    @input="searchWithDebounce"
                     hide-details
                 />
             </v-col>
@@ -55,7 +55,7 @@
         <v-pagination
             :value="page"
             :length="meta.totalPages"
-            color="accent"
+            :color="$vuetify.theme.dark ? 'primary' : 'accent'"
             total-visible="10"
             @input="changePage"
             class="mt-4"
@@ -65,6 +65,7 @@
 
 <script>
 import UserItem from "~/components/users/userItem.vue";
+import debounce from "~/utils/debounce";
 
 export default {
     name: "UsersPage",
@@ -99,6 +100,14 @@ export default {
             },
         };
     },
+    mounted() {
+        this.searchWithDebounce = debounce(this.onSearch);
+
+        if (this.$route.query.city || this.$route.query.search) {
+            this.syncQueryWithState();
+            this.applyFilters();
+        }
+    },
 
     async asyncData({ $api, query }) {
         const page = parseInt(query.page) || 1;
@@ -131,7 +140,27 @@ export default {
         }
     },
 
+    watch: {
+        "$route.query": {
+            handler() {
+                this.syncQueryWithState();
+                this.applyFilters();
+            },
+            deep: true,
+        },
+    },
+
     methods: {
+        syncQueryWithState() {
+            this.page = parseInt(this.$route.query.page) || 1;
+            this.search = this.$route.query.search || "";
+            this.city = this.$route.query.city || "";
+        },
+
+        searchWithDebounce: debounce(() => {
+            this.applyFilters();
+        }),
+
         async changePage(page) {
             this.loading = true;
 
@@ -207,8 +236,4 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
-.v-text-field__details {
-    display: none;
-}
-</style>
+<style lang="css" scoped></style>

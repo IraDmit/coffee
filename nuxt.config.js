@@ -78,10 +78,10 @@ export default {
                     primary: colors.blue.darken2,
                     accent: "#FFFFFF",
                     secondary: colors.amber.darken3,
-                    info: "#0D47A1", // добавлено для темной темы
-                    warning: "#FFAB40", // добавлено для темной темы
-                    error: "#B71C1C", // добавлено для темной темы
-                    success: "#2E7D32", // добавлено для темной темы
+                    info: "#0D47A1",
+                    warning: "#FFAB40",
+                    error: "#B71C1C",
+                    success: "#2E7D32",
                 },
                 light: {
                     primary: "#FFFFFF",
