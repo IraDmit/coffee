@@ -52,6 +52,11 @@
                 <UserItem :user="user" :loading="loading" />
             </v-col>
         </v-row>
+        <v-row v-else>
+            <v-col cols="12" class="text-center">
+                <p class="subtitle-1">Пользователи не найдены</p>
+            </v-col>
+        </v-row>
 
         <v-pagination
             :value="page"
